@@ -1,12 +1,10 @@
 const fs = require("fs");
 
-let depths = fs.readFileSync("../input.txt", "ascii").split("\n").map(x => parseInt(x));
-let count = 0;
+let depths = fs
+	.readFileSync("../input.txt", "ascii")
+	.split("\n")
+	.map(x => parseInt(x));
 
-for (let i = 3; i < depths.length; i++) {
-	if (depths[i - 3] < depths[i]) {
-		count++;
-	}
-}
-
-console.log(count);
+console.log(depths
+	.filter((x, i, a) => x > a[i - 3])
+	.length);
