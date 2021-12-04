@@ -1,4 +1,4 @@
-depths = readlines("../input.txt") .|>
+depths = readlines("input.txt") .|>
 	x -> parse(Int, x)
 
 n = 0

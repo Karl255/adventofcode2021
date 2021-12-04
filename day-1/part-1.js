@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 let depths = fs
-	.readFileSync("../input.txt", "ascii")
+	.readFileSync("input.txt", "ascii")
 	.split("\n")
 	.map(x => parseInt(x));
 

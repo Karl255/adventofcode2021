@@ -1,6 +1,6 @@
 using System.Linq;
 
-var report = File.ReadAllLines("../input.txt")
+var report = File.ReadAllLines("input.txt")
 	.SkipLast(1)
 	.Select(number => number.Select(b => b == '1' ? 1 : 0))
 	.ToArray();

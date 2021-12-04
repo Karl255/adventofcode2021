@@ -1,6 +1,6 @@
 using System.Linq;
 
-var report = File.ReadAllLines("../input.txt")
+var report = File.ReadAllLines("input.txt")
 	//.SkipLast(1)
 	.Select(x => Convert.ToInt32(x, 2))
 	.ToArray();

@@ -1,7 +1,7 @@
 using System.Linq;
 
 System.Console.WriteLine(System.IO.File
-	.ReadAllText("../input.txt")
+	.ReadAllText("input.txt")
 	.Split('\n')
 	.SkipLast(1)
 	.Select(x => (instruction: x[0], value: int.Parse(x.Split(' ')[1])))

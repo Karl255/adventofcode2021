@@ -1,4 +1,4 @@
-course = readlines("../input.txt") .|>
+course = readlines("input.txt") .|>
 	line -> (dir = line[1], value = parse(Int, split(line)[2]))
 
 submarine = (x = 0, z = 0, aim = 0)
