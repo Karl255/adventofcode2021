@@ -13,14 +13,7 @@ int main() {
 	fclose(input);
 	
 	for (i = 0; i < 256; i++) {
-		t = ages[0];
-		
-		for (j = 1; j < 9; j++) {
-			ages[j - 1] = ages[j];
-		}
-		
-		ages[8] = t;
-		ages[6] += t;
+		ages[(i + 7) % 9] += ages[i % 9];
 	}
 	
 	for (i = 0; i < 9; i++) {
