@@ -5,7 +5,7 @@ let input = fs
 	.split(",")
 	.map(x => parseInt(x));
 
-input.sort((x, y) => y - x)
+input.sort((x, y) => x - y)
 
 let med;
 
