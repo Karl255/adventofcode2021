@@ -1,13 +1,10 @@
-using System;
-using System.Linq;
-
-var depths = System.IO.File
+int[] depths = System.IO.File
 	.ReadAllText("input.txt")
 	.Split('\n')
 	.Select(int.Parse)
 	.ToArray();
 
-System.Console.WriteLine(depths
+WriteLine(depths
 	.Skip(3)
 	.Select((x, i) => x > depths[i])
 	.Count(x => x));

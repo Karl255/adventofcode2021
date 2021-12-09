@@ -1,6 +1,4 @@
-using System.Linq;
-
-string input = System.IO.File.ReadAllText("input.txt");
+string input = File.ReadAllText("input.txt");
 int w = input.IndexOf('\n'); // width
 string map = input.Replace("\n", "");
 

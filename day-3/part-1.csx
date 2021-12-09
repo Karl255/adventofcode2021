@@ -1,5 +1,3 @@
-using System.Linq;
-
 var report = File.ReadAllLines("input.txt")
 	.SkipLast(1)
 	.Select(number => number.Select(b => b == '1' ? 1 : 0))
@@ -7,7 +5,7 @@ var report = File.ReadAllLines("input.txt")
 
 int threshhold = report.Length / 2;
 
-var counts = report
+int[] counts = report
 	.Aggregate((x, y) => x
 		.Zip(y, (a, b) => (a, b))
 		.Select(x => x.a + x.b)
