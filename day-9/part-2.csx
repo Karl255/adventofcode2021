@@ -1,7 +1,6 @@
 string input = File.ReadAllText("input.txt");
-int w = input.IndexOf('\n'); // width
-string map = input.Replace("\n", "");
-bool[] counted = new bool[map.Length];
+int w = input.IndexOf('\n');
+char[] map = input.Replace("\n", "").ToCharArray();
 
 int[] basins = map
 	.Select((h, i) => (h, i))
@@ -17,10 +16,10 @@ int[] basins = map
 WriteLine(basins[0] * basins[1] * basins[2]);
 
 int Count(int i) {
-	counted[i] = true;
-	return map[i] == '9' ? 0 : 1
-		+ (i % w == 0          || counted[i - 1] ? 0 : Count(i - 1))
-		+ (i % w == w - 1      || counted[i + 1] ? 0 : Count(i + 1))
-		+ (i - w <  0          || counted[i - w] ? 0 : Count(i - w))
-		+ (i + w >= map.Length || counted[i + w] ? 0 : Count(i + w));
+	map[i] = '9';
+	return 1
+		+ (i % w == 0          || map[i - 1] == '9' ? 0 : Count(i - 1))
+		+ (i % w == w - 1      || map[i + 1] == '9' ? 0 : Count(i + 1))
+		+ (i - w <  0          || map[i - w] == '9' ? 0 : Count(i - w))
+		+ (i + w >= map.Length || map[i + w] == '9' ? 0 : Count(i + w));
 }
