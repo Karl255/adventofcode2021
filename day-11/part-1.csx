@@ -24,7 +24,7 @@ for (int step = 0; step < 100; step++) {
 
 WriteLine(flashes);
 
-int Flash(int[] dumbos, bool[] flashed, int index) {
+void Flash(int[] dumbos, bool[] flashed, int index) {
 	flashed[index] = true;
 	
 	int xMin = index % 10 ==   0 ? 0 : -1;
@@ -46,6 +46,4 @@ int Flash(int[] dumbos, bool[] flashed, int index) {
 			}
 		}
 	}
-	
-	return 0;
 }
