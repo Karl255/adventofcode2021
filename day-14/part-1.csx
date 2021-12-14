@@ -1,7 +1,7 @@
 string[] input = File.ReadAllText("input.txt").Split("\n\n");
 string polymer = input[0];
 
-Dictionary<string, string> rules = input[1]
+var rules = input[1]
 	.TrimEnd()
 	.Split('\n')
 	.Select(l => l.Split(" -> "))

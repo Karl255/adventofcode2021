@@ -11,21 +11,20 @@ var polymer = Enumerable
 		x => x.value
 	);
 
-Dictionary<(char, char), char> rules = input[1]
+var rules = input[1]
 	.TrimEnd()
 	.Split('\n')
-	.Select(l => l.Split(" -> "))
-	.ToDictionary(l => (l[0][0], l[0][1]), l => l[1][0]);
+	.ToDictionary(l => (l[0], l[1]), l => l[6]);
 
 for (int i = 0; i < 40; i++) {
 	Dictionary<(char, char), long> newPolymer = new();
 	
 	foreach (var (pair, count) in polymer) {
 		var newPair = pair with { l = rules[pair] };
-		newPolymer[newPair] = (newPolymer.ContainsKey(newPair) ? newPolymer[newPair] : 0L) + polymer[pair];
+		newPolymer[newPair] = (newPolymer.ContainsKey(newPair) ? newPolymer[newPair] : 0L) + count;
 		
 		newPair = pair with { r = rules[pair] };
-		newPolymer[newPair] = (newPolymer.ContainsKey(newPair) ? newPolymer[newPair] : 0L) + polymer[pair];
+		newPolymer[newPair] = (newPolymer.ContainsKey(newPair) ? newPolymer[newPair] : 0L) + count;
 	}
 	
 	polymer = newPolymer;
